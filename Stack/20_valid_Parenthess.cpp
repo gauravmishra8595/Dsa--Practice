@@ -1,231 +1,280 @@
 #include <iostream>
 #include <stack>
-#include <string>
 
 using namespace std;
 
 class Solution
 {
+    stack<int> st;
+    stack<int> mini;
+
 public:
-    bool isValid(string s)
+    // Push element into stack
+    void push(int val)
     {
-        stack<char> st;
+        st.push(val);
 
-        for (char ch : s)
+        if (mini.empty() || val <= mini.top())
+            mini.push(val);
+    }
+
+    // Remove top element
+    void pop()
+    {
+        if (st.empty())
         {
-            // Push opening brackets
-            if (ch == '(' || ch == '{' || ch == '[')
-            {
-                st.push(ch);
-            }
-            else
-            {
-                // No matching opening bracket
-                if (st.empty())
-                    return false;
-
-                char top = st.top();
-
-                // Check if current closing bracket
-                // matches the top opening bracket
-                if ((ch == ')' && top == '(') ||
-                    (ch == '}' && top == '{') ||
-                    (ch == ']' && top == '['))
-                {
-                    st.pop();
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            cout << "Stack is empty.\n";
+            return;
         }
 
-        // Stack should be empty if valid
-        return st.empty();
+        if (st.top() == mini.top())
+            mini.pop();
+
+        st.pop();
+    }
+
+    // Return top element
+    int top()
+    {
+        if (st.empty())
+        {
+            cout << "Stack is empty.\n";
+            return -1;
+        }
+
+        return st.top();
+    }
+
+    // Return minimum element
+    int getMin()
+    {
+        if (mini.empty())
+        {
+            cout << "Stack is empty.\n";
+            return -1;
+        }
+
+        return mini.top();
     }
 };
 
 int main()
 {
-    string s;
-
-    cout << "Enter bracket string: ";
-    cin >> s;
-
     Solution obj;
 
-    if (obj.isValid(s))
-        cout << "Valid Parentheses" << endl;
-    else
-        cout << "Invalid Parentheses" << endl;
+    int n;
+    cout << "Enter number of elements to push: ";
+    cin >> n;
+
+    cout << "Enter elements:\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        obj.push(x);
+    }
+
+    cout << "\nTop Element: " << obj.top() << endl;
+    cout << "Minimum Element: " << obj.getMin() << endl;
+
+    obj.pop();
+
+    cout << "\nAfter one pop:\n";
+    cout << "Top Element: " << obj.top() << endl;
+    cout << "Minimum Element: " << obj.getMin() << endl;
 
     return 0;
 }
 
 /*
 =========================================
-LeetCode 20 : Valid Parentheses
+LeetCode 155 : Min Stack
 =========================================
 
 Problem:
-Given a string containing only:
+Design a stack that supports the following
+operations in O(1) time.
 
-'(' , ')' , '{' , '}' , '[' , ']'
+1. push(x)
+2. pop()
+3. top()
+4. getMin()
 
-Determine whether the string is valid.
-
-A string is valid if:
-1. Every opening bracket has a matching closing bracket.
-2. Brackets close in the correct order.
+getMin() should always return the minimum
+element currently present in the stack.
 
 Example:
 
-Input: "()[]{}"
-Output: true
+Input:
+push(5)
+push(2)
+push(7)
 
-Input: "(]"
-Output: false
+top()    -> 7
+getMin() -> 2
+
+pop()
+
+top()    -> 2
+getMin() -> 2
 
 =========================================
 Brute Force Approach
 =========================================
 
 Idea:
-Repeatedly remove valid pairs:
 
-()
-{}
-[]
-
-If the string becomes empty,
-all brackets were matched correctly.
+Whenever getMin() is called,
+traverse the entire stack to find
+the smallest element.
 
 Algorithm:
 
-1. Keep searching for:
-      "()"
-      "{}"
-      "[]"
+push(x)
+    Push into stack
 
-2. Remove them whenever found.
+pop()
+    Remove top element
 
-3. Repeat until no further changes occur.
+top()
+    Return top
 
-4. If string becomes empty:
-      Valid
-   Else:
-      Invalid
+getMin()
+    Traverse entire stack
+    Return smallest element
 
-Code:
+Time Complexity:
 
-bool isValid(string s)
-{
-    int prevLength = -1;
+push    : O(1)
+pop     : O(1)
+top     : O(1)
+getMin  : O(N)
 
-    while (prevLength != s.length())
-    {
-        prevLength = s.length();
-
-        size_t pos;
-
-        while ((pos = s.find("()")) != string::npos)
-            s.erase(pos, 2);
-
-        while ((pos = s.find("{}")) != string::npos)
-            s.erase(pos, 2);
-
-        while ((pos = s.find("[]")) != string::npos)
-            s.erase(pos, 2);
-    }
-
-    return s.empty();
-}
-
-Time Complexity: O(N²)
-Space Complexity: O(N)
+Space Complexity:
+O(N)
 
 =========================================
-Optimal Approach (Stack)
+Optimal Approach (Two Stacks)
 =========================================
 
 Idea:
 
-Opening Bracket:
-    Push into stack
+Maintain two stacks.
 
-Closing Bracket:
-    Must match stack top
+1. Main Stack
+   Stores all elements.
 
-If mismatch occurs:
-    Invalid
+2. Min Stack
+   Stores only minimum elements.
 
-At the end:
-    Stack should be empty
+Rules:
 
-Example:
+Push:
 
-Input:
-"({[]})"
+If Min Stack is empty OR
+current value <= current minimum,
+push into Min Stack also.
 
-Process:
+Pop:
 
-(  -> push
-{  -> push
-[  -> push
-]  -> pop [
-}  -> pop {
-)  -> pop (
+If popped element equals
+minimum element,
+remove from Min Stack.
 
-Stack Empty -> Valid
+Top:
+
+Return top of Main Stack.
+
+getMin():
+
+Return top of Min Stack.
 
 =========================================
 Dry Run
 =========================================
 
 Input:
-s = "([{}])"
 
-Stack State:
+push(5)
 
-(      -> (
-[      -> ([
-{      -> ([{
-}      -> ([
-]      -> (
-)      -> empty
+Main Stack:
+5
 
-Result:
-true
+Min Stack:
+5
+
+------------------
+
+push(2)
+
+Main Stack:
+5 2
+
+Min Stack:
+5 2
+
+------------------
+
+push(7)
+
+Main Stack:
+5 2 7
+
+Min Stack:
+5 2
+
+------------------
+
+getMin()
+
+Answer = 2
+
+------------------
+
+pop()
+
+Removed = 7
+
+Main Stack:
+5 2
+
+Min Stack:
+5 2
+
+------------------
+
+getMin()
+
+Answer = 2
 
 =========================================
 Time & Space Complexity
 =========================================
 
-Brute Force:
-Time  : O(N²)
-Space : O(N)
+Push     : O(1)
 
-Optimal Stack:
-Time  : O(N)
-Space : O(N)
+Pop      : O(1)
+
+Top      : O(1)
+
+getMin() : O(1)
+
+Space:
+O(N)
 
 =========================================
 Interview Tip
 =========================================
 
-This is one of the most common
-Stack-based interview questions.
+Instead of searching for the minimum
+every time, maintain another stack
+that keeps track of the minimum
+element seen so far.
 
-Key Observation:
-
-Last opened bracket
-must be closed first.
-
-This is exactly the behavior of a stack
-(LIFO - Last In First Out).
-
-Hence Stack is the expected
-optimal solution in interviews.
+This allows all operations,
+including getMin(),
+to run in constant time O(1),
+which is the expected interview solution.
 =========================================
 */
