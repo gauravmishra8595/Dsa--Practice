@@ -1,18 +1,12 @@
 # 🚀 DSA Practice Repository | Data Structures & Algorithms
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/gauravmishra8595/Dsa--Practice?style=for-the-badge" />
-  <img src="https://img.shields.io/github/forks/gauravmishra8595/Dsa--Practice?style=for-the-badge" />
-  <img src="https://img.shields.io/github/languages/top/gauravmishra8595/Dsa--Practice?style=for-the-badge" />
-</p>
-
-<p align="center">
-  A structured collection of Data Structures & Algorithms implementations, problem-solving approaches, and interview preparation solutions.
+A structured collection of <b>Data Structures & Algorithms</b> implementations, problem-solving approaches, and interview preparation solutions.
 </p>
 
 ---
 
-## 👨‍💻 About This Repository
+# 👨‍💻 About This Repository
 
 Welcome to my **DSA Practice Repository** 🚀
 
@@ -47,7 +41,7 @@ The main goals of this repository are:
 ## 🏗 Data Structures
 
 | Topic | Status |
-|---|---|
+|------|--------|
 | Arrays | ✅ Completed |
 | Strings | ✅ Completed |
 | Linked List | ✅ Completed |
@@ -64,7 +58,7 @@ The main goals of this repository are:
 ## ⚡ Algorithms
 
 | Algorithm | Status |
-|---|---|
+|----------|--------|
 | Searching Algorithms | ✅ Completed |
 | Sorting Algorithms | ✅ Completed |
 | Recursion | ✅ Completed |
@@ -80,21 +74,26 @@ The main goals of this repository are:
 Every problem is approached using the following process:
 
 ### 1️⃣ Understand the Problem
+
 - Analyze the problem statement
 - Identify constraints
 - Find possible patterns
 
 ### 2️⃣ Design the Solution
+
 - Think of brute force approaches
 - Optimize the solution
 - Select appropriate data structures
 
 ### 3️⃣ Implementation
+
 - Write clean and readable code
 - Handle edge cases
 - Optimize time and memory usage
 
-## 📂 Repository Structure
+---
+
+# 📂 Repository Structure
 
 ```text
 Dsa--Practice
@@ -111,6 +110,9 @@ Dsa--Practice
 ├── DynamicProgramming
 └── Graphs
 ```
+
+---
+
 # ⏱ Complexity Analysis
 
 Every optimized solution focuses on:
@@ -120,11 +122,14 @@ Every optimized solution focuses on:
 Understanding how execution time increases with input size.
 
 Example:
+
+```text
 Brute Force Solution:
 O(n²)
 
 Optimized Solution:
 O(n)
+```
 
 ## Space Complexity
 
@@ -135,25 +140,27 @@ Analyzing additional memory usage and improving efficiency.
 # 🛠 Tech Stack
 
 <p>
-<img src="https://img.shields.io/badge/Language-C%2B%2B-blue?style=for-the-badge&logo=cplusplus"/>
-<img src="https://img.shields.io/badge/IDE-Visual%20Studio%20Code-blue?style=for-the-badge&logo=visualstudiocode"/>
+<img src="https://img.shields.io/badge/Language-C%2B%2B-blue?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+<img src="https://img.shields.io/badge/Library-C%2B%2B%20STL-green?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+<img src="https://img.shields.io/badge/IDE-Visual%20Studio%20Code-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
 <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
-<img src="https://img.shields.io/badge/Platform-GitHub-black?style=for-the-badge&logo=github"/>
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
 </p>
 
 ---
 
 # 📈 Learning Progress
-✅ Basic Data Structures
-✅ Searching & Sorting Algorithms
-✅ Recursion
-✅ Problem Solving Patterns
-✅ Complexity Analysis
 
-🚧 Advanced Data Structures
-🚧 Dynamic Programming
-🚧 Graph Algorithms
-🚧 Competitive Programming Patterns
+✅ Basic Data Structures  
+✅ Searching & Sorting Algorithms  
+✅ Recursion  
+✅ Problem Solving Patterns  
+✅ Complexity Analysis  
+
+🚧 Advanced Data Structures  
+🚧 Dynamic Programming  
+🚧 Graph Algorithms  
+🚧 Competitive Programming Patterns  
 
 ---
 
@@ -163,47 +170,64 @@ Clone this repository:
 
 ```bash
 git clone https://github.com/gauravmishra8595/Dsa--Practice.git
+```
+
 Move into the repository:
 
+```bash
 cd Dsa--Practice
+```
 
 Explore different topics and practice problems to improve your DSA skills.
 
-💡 What This Repository Demonstrates
+---
+
+# 💡 What This Repository Demonstrates
 
 This repository showcases:
 
-✔ Strong foundation in Data Structures
-✔ Ability to implement algorithms from scratch
-✔ Understanding of optimization techniques
-✔ Clean coding practices
-✔ Consistent learning and improvement mindset
+- ✔ Strong foundation in Data Structures
+- ✔ Ability to implement algorithms from scratch
+- ✔ Understanding of optimization techniques
+- ✔ Clean coding practices
+- ✔ Consistent learning and improvement mindset
 
-🤝 Contributions
+---
+
+# 🤝 Contributions
 
 Suggestions and improvements are always welcome.
 
 You can contribute by:
 
-Adding optimized solutions
-Improving explanations
-Fixing bugs
-Adding new DSA problems
-⭐ Support
+- Adding optimized solutions
+- Improving explanations
+- Fixing bugs
+- Adding new DSA problems
+
+---
+
+# ⭐ Support
 
 If you find this repository useful, consider giving it a ⭐.
 
 Your support motivates continuous learning and improvement 🚀
 
-📬 Connect With Me
+---
 
 # 📬 Connect With Me
 
-GitHub: [github.com/gauravmishra8595](https://github.com/gauravmishra8595)
+<a href="https://github.com/gauravmishra8595" target="_blank">
+<img src="https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github" />
+</a>
+
+---
 
 <div align="center">
-🚀 "Consistency + Practice = Mastery"
+
+🚀 **"Consistency + Practice = Mastery"**
 
 Happy Coding! 💻
 
+</div>
 
