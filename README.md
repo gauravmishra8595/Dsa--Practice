@@ -197,12 +197,13 @@ Your support motivates continuous learning and improvement 🚀
 
 📬 Connect With Me
 
-GitHub:
-https://github.com/gauravmishra8595
+# 📬 Connect With Me
+
+GitHub: [github.com/gauravmishra8595](https://github.com/gauravmishra8595)
 
 <div align="center">
 🚀 "Consistency + Practice = Mastery"
 
 Happy Coding! 💻
 
-</div> ```
+
