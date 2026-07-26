@@ -96,22 +96,22 @@ function maximumProduct(nums):
     return maxProd
 
 COMPLETE BRUTE FORCE CODE:
-// class Solution {
-// public:
-//     int maximumProduct(vector<int>& nums) {
-//         int n = nums.size();
-//         long long maxProd = LLONG_MIN;
-//         for (int i = 0; i < n - 2; i++) {
-//             for (int j = i + 1; j < n - 1; j++) {
-//                 for (int k = j + 1; k < n; k++) {
-//                     long long prod = (long long)nums[i] * nums[j] * nums[k];
-//                     maxProd = max(maxProd, prod);
-//                 }
-//             }
-//         }
-//         return (int)maxProd;
-//     }
-// };
+class Solution {
+public:
+    int maximumProduct(vector<int>& nums) {
+        int n = nums.size();
+        long long maxProd = LLONG_MIN;
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    long long prod = (long long)nums[i] * nums[j] * nums[k];
+                    maxProd = max(maxProd, prod);
+                }
+            }
+        }
+        return (int)maxProd;
+    }
+};
 
 TIME COMPLEXITY: O(n^3)
 - Three nested loops iterating over all possible triplets.
@@ -164,36 +164,36 @@ function maximumProduct(nums):
     return max(max1 * max2 * max3, max1 * min1 * min2)
 
 COMPLETE OPTIMAL CODE:
-// class Solution {
-// public:
-//     int maximumProduct(vector<int>& nums) {
-//         int n = nums.size();
-//         int max1 = INT_MIN, max2 = INT_MIN, max3 = INT_MIN;
-//         int min1 = INT_MAX, min2 = INT_MAX;
-//
-//         for (int i = 0; i < n; i++) {
-//             if (nums[i] > max1) {
-//                 max3 = max2;
-//                 max2 = max1;
-//                 max1 = nums[i];
-//             } else if (nums[i] > max2) {
-//                 max3 = max2;
-//                 max2 = nums[i];
-//             } else if (nums[i] > max3) {
-//                 max3 = nums[i];
-//             }
-//
-//             if (nums[i] < min1) {
-//                 min2 = min1;
-//                 min1 = nums[i];
-//             } else if (nums[i] < min2) {
-//                 min2 = nums[i];
-//             }
-//         }
-//
-//         return max(max1 * max2 * max3, max1 * min1 * min2);
-//     }
-// };
+class Solution {
+public:
+    int maximumProduct(vector<int>& nums) {
+        int n = nums.size();
+        int max1 = INT_MIN, max2 = INT_MIN, max3 = INT_MIN;
+        int min1 = INT_MAX, min2 = INT_MAX;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > max1) {
+                max3 = max2;
+                max2 = max1;
+                max1 = nums[i];
+            } else if (nums[i] > max2) {
+                max3 = max2;
+                max2 = nums[i];
+            } else if (nums[i] > max3) {
+                max3 = nums[i];
+            }
+
+            if (nums[i] < min1) {
+                min2 = min1;
+                min1 = nums[i];
+            } else if (nums[i] < min2) {
+                min2 = nums[i];
+            }
+        }
+
+        return max(max1 * max2 * max3, max1 * min1 * min2);
+    }
+};
 
 TIME COMPLEXITY: O(n)
 - Single pass through the array to find top 3 max and bottom 2 min.
