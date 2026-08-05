@@ -9,7 +9,6 @@ public:
     {
         if (s.length() != t.length())
             return false;
-
         vector<int> freq(26, 0);
 
         for (char ch : s)
