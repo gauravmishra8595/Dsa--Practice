@@ -11,14 +11,11 @@ public:
     {
 
         priority_queue<int> pq;
-
-        // Insert all stones into max heap
         for (auto x : stones)
         {
             pq.push(x);
         }
 
-        // Keep smashing the two heaviest stones
         while (pq.size() > 1)
         {
 

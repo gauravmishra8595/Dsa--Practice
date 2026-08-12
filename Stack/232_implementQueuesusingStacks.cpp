@@ -1,13 +1,11 @@
 #include <iostream>
 #include <stack>
 using namespace std;
-
 class MyQueue
 {
 private:
     stack<int> input;
     stack<int> output;
-
 public:
     MyQueue()
     {
